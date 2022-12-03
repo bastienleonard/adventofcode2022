@@ -1,11 +1,14 @@
-// TODO: read files line by line
+use std::io::BufRead;
 
 fn ex1_1() -> i32 {
-    let input = std::fs::read_to_string("input1.txt").unwrap();
+    let file = std::fs::File::open("input1.txt").unwrap();
+    let lines = std::io::BufReader::new(file).lines();
     let mut max_calories = -1;
     let mut current_calories = 0;
 
-    for line in input.split("\n") {
+    for line in lines {
+        let line = line.unwrap();
+
         if line.is_empty() {
             if current_calories > max_calories {
                 max_calories = current_calories;
@@ -21,11 +24,14 @@ fn ex1_1() -> i32 {
 }
 
 fn ex1_2() -> i32 {
-    let input = std::fs::read_to_string("input1.txt").unwrap();
+    let file = std::fs::File::open("input1.txt").unwrap();
+    let lines = std::io::BufReader::new(file).lines();
     let mut biggest3: Vec<i32> = vec![];
     let mut current_calories = 0;
 
-    for line in input.split("\n") {
+    for line in lines {
+        let line = line.unwrap();
+
         if line.is_empty() {
             if biggest3.len() == 0 {
                 biggest3.push(current_calories);
