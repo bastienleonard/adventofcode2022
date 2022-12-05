@@ -22,7 +22,7 @@ pub fn ex2_1() -> i32 {
                     _ => unreachable!()
                 }
             };
-            result_points(&prediction) + choice_points(&prediction.my_choice)
+            prediction.points() + prediction.my_choice.points()
         }
     ).sum()
 }
@@ -52,7 +52,7 @@ pub fn ex2_2() -> i32 {
                 GameResult::Loss => Choice::loser_against(his_choice),
                 GameResult::Draw => his_choice
             };
-            game_result.points() + choice_points(&my_choice)
+            game_result.points() + my_choice.points()
         }
     ).sum()
 }
@@ -80,12 +80,32 @@ impl Choice {
             Choice::Scissors => Choice::Paper
         }
     }
+
+    fn points(self) -> i32 {
+        match self {
+            Choice::Rock => 1,
+            Choice::Paper => 2,
+            Choice::Scissors => 3
+        }
+    }
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 struct Prediction {
     his_choice: Choice,
     my_choice: Choice
+}
+
+impl Prediction {
+    fn points(self) -> i32 {
+        if self.my_choice == self.his_choice {
+            GameResult::Draw
+        } else if self.my_choice == Choice::winner_against(self.his_choice) {
+            GameResult::Win
+        } else {
+            GameResult::Loss
+        }.points()
+    }
 }
 
 enum GameResult {
@@ -101,23 +121,5 @@ impl GameResult {
             GameResult::Draw => 3,
             GameResult::Loss => 0
         }
-    }
-}
-
-fn result_points(prediction: &Prediction) -> i32 {
-    if prediction.my_choice == prediction.his_choice {
-        GameResult::Draw
-    } else if prediction.my_choice == Choice::winner_against(prediction.his_choice) {
-        GameResult::Win
-    } else {
-        GameResult::Loss
-    }.points()
-}
-
-fn choice_points(choice: &Choice) -> i32 {
-    match choice {
-        Choice::Rock => 1,
-        Choice::Paper => 2,
-        Choice::Scissors => 3
     }
 }
