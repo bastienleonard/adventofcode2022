@@ -1,1 +1,5 @@
 /target
+*~
+
+# Backup files created by rustfmt
+*.bk
