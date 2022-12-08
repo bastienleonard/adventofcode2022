@@ -3,6 +3,7 @@ pub mod ex2;
 pub mod ex3;
 pub mod ex4;
 pub mod ex5;
+pub mod ex6;
 
 fn main() {
     assert!(ex1::ex1_1() == 65912);
@@ -15,4 +16,6 @@ fn main() {
     assert!(ex4::ex4_2() == 861);
     assert!(ex5::ex5_1() == "SBPQRSCDF");
     assert!(ex5::ex5_2() == "RGLVRCQSB");
+    assert!(ex6::ex6_1() == 1140);
+    assert!(ex6::ex6_2() == 3495);
 }
