@@ -1,6 +1,6 @@
 use std::io::BufRead;
 
-pub fn ex3_1() -> i32 {
+pub fn part1() -> i32 {
     let file = std::fs::File::open("input3.txt").unwrap();
     let lines = std::io::BufReader::new(file).lines();
 
@@ -41,7 +41,7 @@ fn item_priority(c: char) -> i32 {
     }
 }
 
-pub fn ex3_2() -> i32 {
+pub fn part2() -> i32 {
     let file = std::fs::File::open("input3.txt").unwrap();
     let lines = std::io::BufReader::new(file).lines();
     let mut group: Vec<String> = vec![];

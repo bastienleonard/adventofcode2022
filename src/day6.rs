@@ -1,7 +1,7 @@
 use std::collections::VecDeque;
 use std::io::Read;
 
-pub fn ex6_1() -> i32 {
+pub fn part1() -> i32 {
     let mut file = std::fs::File::open("input6.txt").unwrap();
     let mut last_4_chars: VecDeque<u8> = VecDeque::new();
     let mut chars_read = 0;
@@ -39,7 +39,7 @@ fn unique(chars: &VecDeque<u8>) -> bool {
     true
 }
 
-pub fn ex6_2() -> i32 {
+pub fn part2() -> i32 {
     let mut file = std::fs::File::open("input6.txt").unwrap();
     let mut last_14_chars: VecDeque<u8> = VecDeque::new();
     let mut chars_read = 0;

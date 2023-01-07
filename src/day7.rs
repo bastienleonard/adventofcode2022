@@ -2,14 +2,14 @@ use std::collections::{HashMap,VecDeque};
 use std::fs::File;
 use std::io::{BufRead, BufReader, Lines};
 
-pub fn ex7_1() -> i32 {
+pub fn part1() -> i32 {
     make_dir_sizes()
         .values()
         .filter(|&&size| size <= 100000)
         .sum()
 }
 
-pub fn ex7_2() -> i32 {
+pub fn part2() -> i32 {
     let dir_sizes = make_dir_sizes();
     let total_fs_size = 70000000;
     let root_size: i32 = dir_sizes["/"];

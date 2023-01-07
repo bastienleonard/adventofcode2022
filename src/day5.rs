@@ -1,6 +1,6 @@
 use std::io::BufRead;
 
-pub fn ex5_1() -> String {
+pub fn part1() -> String {
     let mut stacks: Vec<Vec<char>> = vec![
         vec!['j', 'h', 'p', 'm', 's', 'f', 'n', 'v'],
         vec!['s', 'r', 'l', 'm', 'j', 'd', 'q'],
@@ -50,7 +50,7 @@ fn move_crate_1(
     }
 }
 
-pub fn ex5_2() -> String {
+pub fn part2() -> String {
     let mut stacks: Vec<Vec<char>> = vec![
         vec!['j', 'h', 'p', 'm', 's', 'f', 'n', 'v'],
         vec!['s', 'r', 'l', 'm', 'j', 'd', 'q'],

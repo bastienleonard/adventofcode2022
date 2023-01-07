@@ -1,6 +1,6 @@
 use std::io::BufRead;
 
-pub fn ex2_1() -> i32 {
+pub fn part1() -> i32 {
     let file = std::fs::File::open("input2.txt").unwrap();
     let lines = std::io::BufReader::new(file).lines();
     lines.map(
@@ -27,7 +27,7 @@ pub fn ex2_1() -> i32 {
     ).sum()
 }
 
-pub fn ex2_2() -> i32 {
+pub fn part2() -> i32 {
     let file = std::fs::File::open("input2.txt").unwrap();
     let lines = std::io::BufReader::new(file).lines();
     lines.map(

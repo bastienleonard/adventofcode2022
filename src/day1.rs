@@ -1,6 +1,6 @@
 use std::io::BufRead;
 
-pub fn ex1_1() -> i32 {
+pub fn part1() -> i32 {
     let file = std::fs::File::open("input1.txt").unwrap();
     let lines = std::io::BufReader::new(file).lines();
     let mut max_calories = -1;
@@ -23,7 +23,7 @@ pub fn ex1_1() -> i32 {
     max_calories
 }
 
-pub fn ex1_2() -> i32 {
+pub fn part2() -> i32 {
     let file = std::fs::File::open("input1.txt").unwrap();
     let lines = std::io::BufReader::new(file).lines();
     let mut biggest3: Vec<i32> = vec![];

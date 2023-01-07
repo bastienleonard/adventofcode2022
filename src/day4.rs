@@ -1,7 +1,7 @@
 use std::io::BufRead;
 use std::ops::RangeInclusive;
 
-pub fn ex4_1() -> i32 {
+pub fn part1() -> i32 {
     let file = std::fs::File::open("input4.txt").unwrap();
     std::io::BufReader::new(file).lines()
         .map(|line| {
@@ -32,7 +32,7 @@ fn one_fully_contains(
         || (second.start() <= first.start() && second.end() >= first.end())
 }
 
-pub fn ex4_2() -> i32 {
+pub fn part2() -> i32 {
     let file = std::fs::File::open("input4.txt").unwrap();
     std::io::BufReader::new(file).lines()
         .map(|line| {
