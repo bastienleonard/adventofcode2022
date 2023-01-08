@@ -5,6 +5,7 @@ pub mod day4;
 pub mod day5;
 pub mod day6;
 pub mod day7;
+pub mod day8;
 
 fn main() {
     assert!(day1::part1() == 65912);
@@ -21,4 +22,6 @@ fn main() {
     assert!(day6::part2() == 3495);
     assert!(day7::part1() == 1581595);
     assert!(day7::part2() == 1544176);
+    assert!(day8::part1() == 1798);
+    assert!(day8::part2() == 259308);
 }
