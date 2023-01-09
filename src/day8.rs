@@ -177,9 +177,8 @@ impl<'a> Iterator for ForestIterator<'a> {
     type Item = ForestIteratorItem;
 
     fn next(&mut self) -> Option<ForestIteratorItem> {
-        match self.forest.get(self.x, self.y) {
-            None => None,
-            Some(height) => {
+        self.forest.get(self.x, self.y)
+            .map(|height| {
                 let x = self.x;
                 let y = self.y;
                 self.x += 1;
@@ -189,15 +188,12 @@ impl<'a> Iterator for ForestIterator<'a> {
                     self.y += 1;
                 }
 
-                Some(
-                    ForestIteratorItem {
-                        height,
-                        x,
-                        y
-                    }
-                )
-            }
-        }
+                ForestIteratorItem {
+                    height,
+                    x,
+                    y
+                }
+            })
     }
 }
 
